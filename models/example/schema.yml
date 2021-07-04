@@ -1,0 +1,17 @@
+version: 2
+
+models:
+    - name: metrics_model
+      description: "A starter dbt model"
+
+
+
+sources:
+    - name: ANOMALY_SOURCE
+      database: ANOMALY_TEST
+      schema: PUBLIC
+      freshness:
+        warn_after: {count: 24, period: hour}
+      tables:
+      - name: KPI
+      - name: METRICS
